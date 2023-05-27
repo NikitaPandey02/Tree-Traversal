@@ -1,0 +1,22 @@
+class Tree
+{
+    //Function to return a list containing the postorder traversal of the tree.
+    ArrayList<Integer> postOrder(Node root)
+    {
+        ArrayList<Integer> ans = new ArrayList<>();
+        postorder(root,ans);
+        return ans;
+       // Your code goes here
+    }
+    void postorder(Node root,ArrayList<Integer> ans)
+    {
+        if(root==null)
+        return;
+        else
+        {
+            postorder(root.left,ans);
+            postorder(root.right,ans);
+            ans.add(root.data);
+        }
+    }
+}
