@@ -1,0 +1,28 @@
+ArrayList<Integer> inOrder(Node root)
+    {
+        Stack<Node> st = new Stack<>();
+        ArrayList<Integer> ans = new ArrayList<>();
+        while(true)
+        {
+            if(root!=null)
+            {
+                st.push(root);
+                root = root.left;
+            }
+            else
+            {
+                if(st.isEmpty())
+                break;
+                else
+                {
+                    root=st.peek();
+                    ans.add(root.data);
+                    st.pop();
+                    root = root.right;
+                    
+                }
+            }
+        }
+        return ans;
+        // Code
+    }
