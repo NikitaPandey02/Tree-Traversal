@@ -1,0 +1,19 @@
+ArrayList<Integer> preOrder(Node root)
+    {
+        ArrayList<Integer> ans = new ArrayList<>();
+        Stack<Node> st = new Stack<>();
+        st.push(root);
+        
+        while(!st.isEmpty())
+        {
+            Node newnode = st.peek();
+            st.pop();
+            ans.add(newnode.data);
+            if(newnode.right!=null)
+            st.push(newnode.right);
+            if(newnode.left!=null)
+            st.push(newnode.left);
+        }
+        return ans;
+        // Code
+    }
