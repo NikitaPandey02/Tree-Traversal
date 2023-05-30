@@ -1,0 +1,17 @@
+static ArrayList <Integer> levelOrder(Node node) 
+    {
+        ArrayList<Integer> ans = new ArrayList<>();
+        Queue<Node> qu = new LinkedList<>();
+        qu.add(node);
+        while(!qu.isEmpty())
+        {
+            Node newnode = qu.poll();
+            ans.add(newnode.data);
+            if(newnode.left!=null)
+            qu.add(newnode.left);
+            if(newnode.right!=null)
+            qu.add(newnode.right);
+        }
+        return ans;
+        // Your code here
+    }
