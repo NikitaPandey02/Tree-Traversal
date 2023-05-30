@@ -1,0 +1,24 @@
+ArrayList<Integer> postOrder(Node node) {
+        ArrayList<Integer> ans = new ArrayList<>();
+        Stack<Node> st = new Stack<>();
+        Stack<Node> s = new Stack<>();
+        st.push(node);
+        while(!st.isEmpty())
+        {
+            Node newnode = st.peek();
+            st.pop();
+            if(newnode.left!=null)
+            st.push(newnode.left);
+            if(newnode.right!=null)
+            st.push(newnode.right);
+            s.push(newnode);
+        }
+        while(!s.isEmpty())
+        {
+            Node newnode = s.peek();
+            s.pop();
+            ans.add(newnode.data);
+        }
+        return ans;
+        // code here
+    }
